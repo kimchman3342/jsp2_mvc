@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="tblcustomer">
+
+	<select id="join" parameterType="CustomerDto">
+		insert into tbl_custom values (#{customId}, #{name}, #{email}, #{age},
+		sysdate)
+	</select>
+
+	<select id="allCustomers" resultType="CustomerDto">
+		select * from tbl_custom order by reg_date desc
+	</select>
+
+	<delete id="delete" parameterType="String">
+		delete from tbl_custom where custom_id = #{customId}
+	</delete>
+
+	<!-- 어렵습니다.. -->
+	<!-- <select id="selectByNameAge" parameterType="int,String"
+	resultType="CustomerDto" >
+ 		select * from tbl_custom where name = #{name} and age = #{age}
+ 	</select>
+ 	 -->
+
+
+</mapper>
